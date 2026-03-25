@@ -1,2 +1,2 @@
-# elegans
-Web Project
+# elegans 
+Web Project. A event Management Website
