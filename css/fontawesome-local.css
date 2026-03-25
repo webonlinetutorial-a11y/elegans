@@ -1,0 +1,305 @@
+/* Font Awesome 5 Local Fallback - proper FA5 webfonts */
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  src: url('../fonts/fa-solid-900.woff2') format('woff2'),
+       url('../fonts/fa-solid-900.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Font Awesome 5 Brands';
+  src: url('../fonts/fa-brands-400.woff2') format('woff2'),
+       url('../fonts/fa-brands-400.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base icon styling */
+.fa,
+.fas,
+.far,
+.fab,
+.fal {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa,
+.fas,
+.far,
+.fal {
+  font-family: 'Font Awesome 5 Free';
+}
+
+.fab {
+  font-family: 'Font Awesome 5 Brands';
+}
+
+.fa-lg {
+  font-size: 1.333333333333333em;
+  line-height: 0.75em;
+  vertical-align: -0.0667em;
+}
+
+.fa-xs {
+  font-size: 0.75em;
+}
+
+.fa-sm {
+  font-size: 0.875em;
+}
+
+.fa-1x {
+  font-size: 1em;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-4x {
+  font-size: 4em;
+}
+
+.fa-5x {
+  font-size: 5em;
+}
+
+.fa-6x {
+  font-size: 6em;
+}
+
+.fa-7x {
+  font-size: 7em;
+}
+
+.fa-8x {
+  font-size: 8em;
+}
+
+.fa-9x {
+  font-size: 9em;
+}
+
+.fa-10x {
+  font-size: 10em;
+}
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: 2.5em;
+  padding-left: 0;
+}
+
+.fa-ul > li {
+  position: relative;
+}
+
+.fa-li {
+  left: -2em;
+  position: absolute;
+  text-align: center;
+  width: 2em;
+  line-height: inherit;
+}
+
+.fa-border {
+  border: solid 0.08em #eeeeee;
+  border-radius: 0.1em;
+  padding: 0.2em 0.25em 0.15em;
+}
+
+.fa-pull-left {
+  float: left;
+}
+
+.fa-pull-right {
+  float: right;
+}
+
+.fa.fa-pull-left,
+.fas.fa-pull-left,
+.far.fa-pull-left,
+.fal.fa-pull-left,
+.fab.fa-pull-left {
+  margin-right: 0.3em;
+}
+
+.fa.fa-pull-right,
+.fas.fa-pull-right,
+.far.fa-pull-right,
+.fal.fa-pull-right,
+.fab.fa-pull-right {
+  margin-left: 0.3em;
+}
+
+.fa-spin {
+  animation: fa-spin 2s infinite linear;
+}
+
+.fa-pulse {
+  animation: fa-pulse 1s infinite steps(8);
+}
+
+@keyframes fa-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fa-pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fa-rotate-90 {
+  transform: rotate(90deg);
+}
+
+.fa-rotate-180 {
+  transform: rotate(180deg);
+}
+
+.fa-rotate-270 {
+  transform: rotate(270deg);
+}
+
+.fa-flip-horizontal {
+  transform: scaleX(-1);
+}
+
+.fa-flip-vertical {
+  transform: scaleY(-1);
+}
+
+.fa-flip-both,
+.fa-flip-horizontal.fa-flip-vertical {
+  transform: scale(-1);
+}
+
+:root .fa-rotate-90,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical,
+:root .fa-flip-both {
+  filter: none;
+}
+
+.fa-stack {
+  display: inline-block;
+  height: 2em;
+  position: relative;
+  width: 2.5em;
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+  left: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: 0;
+}
+
+.fa-stack-1x {
+  line-height: 2em;
+}
+
+.fa-stack-2x {
+  font-size: 2em;
+  line-height: 2em;
+}
+
+.fa-inverse {
+  color: #ffffff;
+}
+
+/* Social brand icons mappings (sample - customize as needed) */
+.fa-facebook:before,
+.fab.fa-facebook:before {
+  content: "\f39e";
+}
+
+.fa-facebook-f:before,
+.fab.fa-facebook-f:before {
+  content: "\f39e";
+}
+
+.fa-twitter:before,
+.fab.fa-twitter:before {
+  content: "\f42d";
+}
+
+.fa-youtube:before,
+.fab.fa-youtube:before {
+  content: "\f431";
+}
+
+.fa-instagram:before,
+.fab.fa-instagram:before {
+  content: "\f16d";
+}
+
+.fa-linkedin:before,
+.fab.fa-linkedin:before {
+  content: "\f08c";
+}
+
+.fa-linkedin-in:before,
+.fab.fa-linkedin-in:before {
+  content: "\f0e1";
+}
+
+.fa-pinterest:before,
+.fab.fa-pinterest:before {
+  content: "\f0d2";
+}
+
+.fa-whatsapp:before,
+.fab.fa-whatsapp:before {
+  content: "\f232";
+}
+
+.fa-angle-down:before {
+  content: "\f107";
+}
+
+.fa-chevron-circle-up:before {
+  content: "\f139";
+}
+
+.fa-long-arrow-right:before {
+  content: "\f178";
+}
+
+.fa-spinner:before {
+  content: "\f110";
+}
