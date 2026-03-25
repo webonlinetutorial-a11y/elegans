@@ -8173,11 +8173,11 @@
                           <div class="contact-cnt">
                             <div class="contact-head">Get In Touch</div>
                             <div class="row">
-                              <form action="https://formspree.io/f/xldaezny" method="POST">
+                              <form id="contact-us-form" action="https://formspree.io/f/xldaezny" method="POST" novalidate>
                                 <div class="col-md-6">
                                   <div class="form-group">
-                                    <input type="text" name=" full-name" id="contact-us-full-name"
-                                      placeholder="Full Name" class="form-control contact-fld">
+                                    <input type="text" name="full_name" id="contact-us-full-name"
+                                      placeholder="Full Name" class="form-control contact-fld" required>
                                     <div id="contact-us-full-name-error-msg"></div>
                                   </div>
                                 </div>
@@ -8190,22 +8190,41 @@
                                 </div>
                                 <div class="col-md-12">
                                   <div class="form-group">
-                                    <input type="text" name="contact-us-email-id" id="contact-us-email-id"
-                                      placeholder="Email ID" class="form-control contact-fld">
+                                    <input type="email" name="email" id="contact-us-email-id"
+                                      placeholder="Email ID" class="form-control contact-fld" required>
                                     <div id="contact-us-email-id-error-msg"></div>
                                   </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                   <div class="form-group">
-                                    <input type="text" name="contact-us-phone-number" id="contact-us-phone-number"
-                                      placeholder="Phone Number" class="form-control contact-fld">
+                                    <select name="country_code" id="contact-us-country-code"
+                                      class="form-control contact-fld" required>
+                                      <option value="">Country Code</option>
+                                      <option value="+91" data-min="10" data-max="10">India (+91)</option>
+                                      <option value="+1" data-min="10" data-max="10">USA/Canada (+1)</option>
+                                      <option value="+44" data-min="10" data-max="10">UK (+44)</option>
+                                      <option value="+61" data-min="9" data-max="9">Australia (+61)</option>
+                                      <option value="+49" data-min="10" data-max="11">Germany (+49)</option>
+                                      <option value="+33" data-min="9" data-max="9">France (+33)</option>
+                                      <option value="+971" data-min="9" data-max="9">UAE (+971)</option>
+                                      <option value="+65" data-min="8" data-max="8">Singapore (+65)</option>
+                                      <option value="+81" data-min="10" data-max="11">Japan (+81)</option>
+                                      <option value="+86" data-min="11" data-max="11">China (+86)</option>
+                                    </select>
+                                    <div id="contact-us-country-code-error-msg"></div>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="form-group">
+                                    <input type="tel" name="phone" id="contact-us-phone-number"
+                                      placeholder="Phone Number" class="form-control contact-fld" required maxlength="15" inputmode="numeric">
                                     <div id="contact-us-phone-number-error-msg"><span
                                         class="text-danger error-msg-small"></span></div>
                                   </div>
                                 </div>
-                                <div class="col-md-6 ">
-                                  <select name="contact-us-location" id="contact-us-location"
-                                    class="form-control contact-fld">
+                                <div class="col-md-4 ">
+                                  <select name="location" id="contact-us-location"
+                                    class="form-control contact-fld" required>
                                     <option value="">Select Location</option>
                                     <option value="Mumbai">Mumbai</option>
                                     <option value="Delhi">Delhi</option>
@@ -8218,17 +8237,20 @@
                                   <div id="contact-us-location-error-msg"></div>
                                 </div>
                                 <div class="col-md-12">
-                                  <textarea name="contact-us-message" id="contact-us-message"
-                                    class="form-control contact-fld" rows="8" placeholder="Message" style="resize: vertical;"></textarea>
+                                  <textarea name="message" id="contact-us-message"
+                                    class="form-control contact-fld" rows="8" placeholder="Message" style="resize: vertical;" required></textarea>
                                   <div id="contact-us-message-error-msg"></div>
                                 </div>
                                 <div class="col-md-4 col-sm-12">
                                   <div class="form-group">
-                                    <button type="submit" onclick="submit_contact_us_details()"
+                                    <button type="submit"
                                       id="submit-contact-details-btn" name="submit-contact-details-btn"
                                       class="contact-btn">Send</button>
                                   </div>
 
+                                </div>
+                                <div class="col-md-12">
+                                  <div id="contact-us-submit-msg" aria-live="polite"></div>
                                 </div>
                               </form>
                             </div>
@@ -8395,7 +8417,7 @@
                   -o-appearance: none;
                   background-position: right 16px center;
                   background-size: 10px;
-				  margin-bottom: 10px;
+                  margin-bottom: 10px;
                 }
 
                 #faq-5 textarea.form-control {
@@ -8579,7 +8601,7 @@
                   }
 
                   #faq-5 .contact-head {
-                    font-size: 34px;
+                    font-size: 20px;
                     line-height: 40px;
                     font-weight: 500;
                   }
@@ -10669,6 +10691,147 @@
 
       observer.observe(document.querySelector("#stats-3"));
     });
+  </script>
+
+  <script>
+    (function () {
+      var form = document.getElementById('contact-us-form');
+      if (!form) return;
+
+      var fields = {
+        fullName: document.getElementById('contact-us-full-name'),
+        email: document.getElementById('contact-us-email-id'),
+        countryCode: document.getElementById('contact-us-country-code'),
+        phone: document.getElementById('contact-us-phone-number'),
+        location: document.getElementById('contact-us-location'),
+        message: document.getElementById('contact-us-message')
+      };
+
+      var errors = {
+        fullName: document.getElementById('contact-us-full-name-error-msg'),
+        email: document.getElementById('contact-us-email-id-error-msg'),
+        countryCode: document.getElementById('contact-us-country-code-error-msg'),
+        phone: document.getElementById('contact-us-phone-number-error-msg'),
+        location: document.getElementById('contact-us-location-error-msg'),
+        message: document.getElementById('contact-us-message-error-msg')
+      };
+      var submitMsg = document.getElementById('contact-us-submit-msg');
+      var submitBtn = document.getElementById('submit-contact-details-btn');
+
+      function setError(node, message) {
+        if (!node) return;
+        node.innerHTML = message ? '<span class="error-msg-small" style="color:#d93025;">' + message + '</span>' : '';
+      }
+
+      function setSubmitMessage(message, isError) {
+        if (!submitMsg) return;
+        if (!message) {
+          submitMsg.innerHTML = '';
+          return;
+        }
+        submitMsg.innerHTML = '<span class="error-msg-small" style="color:' + (isError ? '#d93025' : '#1b7f3a') + ';">' + message + '</span>';
+      }
+
+      function validateForm() {
+        var isValid = true;
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+        var phoneRaw = (fields.phone.value || '').trim();
+        var phoneDigits = phoneRaw.replace(/\D/g, '');
+        var selectedCodeOption = fields.countryCode.options[fields.countryCode.selectedIndex];
+        var minLen = selectedCodeOption ? parseInt(selectedCodeOption.getAttribute('data-min'), 10) : NaN;
+        var maxLen = selectedCodeOption ? parseInt(selectedCodeOption.getAttribute('data-max'), 10) : NaN;
+
+        Object.keys(errors).forEach(function (key) {
+          setError(errors[key], '');
+        });
+        setSubmitMessage('', false);
+
+        if (!fields.fullName.value.trim()) {
+          setError(errors.fullName, 'Please enter your full name.');
+          isValid = false;
+        }
+
+        if (!emailRegex.test(fields.email.value.trim())) {
+          setError(errors.email, 'Please enter a valid email address.');
+          isValid = false;
+        }
+
+        if (!fields.countryCode.value) {
+          setError(errors.countryCode, 'Please select a country code.');
+          isValid = false;
+        }
+
+        if (!phoneRaw) {
+          setError(errors.phone, 'Please enter your mobile number.');
+          isValid = false;
+        } else if (!/^\d+$/.test(phoneRaw)) {
+          setError(errors.phone, 'Please enter digits only in mobile number.');
+          isValid = false;
+        } else if (!isNaN(minLen) && !isNaN(maxLen) && (phoneDigits.length < minLen || phoneDigits.length > maxLen)) {
+          if (minLen === maxLen) {
+            setError(errors.phone, 'Please enter a valid ' + minLen + '-digit mobile number for selected country code.');
+          } else {
+            setError(errors.phone, 'Please enter a valid mobile number (' + minLen + '-' + maxLen + ' digits) for selected country code.');
+          }
+          isValid = false;
+        }
+
+        if (!fields.location.value.trim()) {
+          setError(errors.location, 'Please select your location.');
+          isValid = false;
+        }
+
+        if (!fields.message.value.trim()) {
+          setError(errors.message, 'Please enter your message.');
+          isValid = false;
+        }
+
+        return isValid;
+      }
+
+      form.addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        if (!validateForm()) {
+          return;
+        }
+
+        try {
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+          }
+
+          var formData = new FormData(form);
+          formData.set('phone', fields.countryCode.value + ' ' + phoneDigits);
+
+          var response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (!response.ok) {
+            throw new Error('submit_failed');
+          }
+
+          form.reset();
+          Object.keys(errors).forEach(function (key) {
+            setError(errors[key], '');
+          });
+          setSubmitMessage('Message sent successfully.', false);
+        } catch (e) {
+          setSubmitMessage('Unable to submit right now. Please try again.', true);
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send';
+          }
+        }
+      });
+
+      window.submit_contact_us_details = validateForm;
+    })();
   </script>
 
 </body>
