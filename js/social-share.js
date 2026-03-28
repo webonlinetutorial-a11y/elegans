@@ -5,6 +5,20 @@
     return element ? element.getAttribute('content') : '';
   }
 
+  function sanitizeShareText(value) {
+    if (!value) return '';
+    return value
+      // Remove full URLs first.
+      .replace(/https?:\/\/[^\s,]+/gi, '')
+      // Remove plain netlify host mentions.
+      .replace(/\b[\w-]+\.netlify\.app\b/gi, '')
+      // Normalize punctuation/spacing left after removals.
+      .replace(/\s*,\s*,/g, ',')
+      .replace(/\s{2,}/g, ' ')
+      .replace(/\s+,/g, ',')
+      .trim();
+  }
+
   function getPreferredShareUrl() {
     var currentUrl = window.location.href;
     var currentHost = (window.location.hostname || '').toLowerCase();
@@ -40,7 +54,7 @@
     url: encodeURIComponent(getPreferredShareUrl()),
     title: encodeURIComponent(document.title),
     text: encodeURIComponent(
-      getMetaContent('meta[name="description"]') || document.title
+      sanitizeShareText(getMetaContent('meta[name="description"]') || document.title)
     ),
     image: encodeURIComponent(
       getMetaContent('meta[property="og:image"]')
