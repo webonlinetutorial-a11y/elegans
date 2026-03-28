@@ -7,17 +7,31 @@
 
   function getPreferredShareUrl() {
     var currentUrl = window.location.href;
-    var hostname = (window.location.hostname || '').toLowerCase();
-    var isLocalHost = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1';
+    var currentHost = (window.location.hostname || '').toLowerCase();
+    var isLocalHost = currentHost === 'localhost' || currentHost === '127.0.0.1' || currentHost === '::1';
+    var ogUrl = getMetaContent('meta[property="og:url"]');
+    var canonicalTag = document.querySelector('link[rel="canonical"]');
+    var canonicalUrl = canonicalTag ? canonicalTag.getAttribute('href') : '';
+    var ogHost = '';
+    var canonicalHost = '';
 
+    try {
+      if (ogUrl) ogHost = (new URL(ogUrl)).hostname.toLowerCase();
+    } catch (e) {}
+    try {
+      if (canonicalUrl) canonicalHost = (new URL(canonicalUrl)).hostname.toLowerCase();
+    } catch (e) {}
+
+    // In local/dev, prefer public metadata URLs so shared links are reachable.
     if (isLocalHost) {
-      // On localhost, share a public URL from metadata so recipients can open it.
-      var ogUrl = getMetaContent('meta[property="og:url"]');
-      var canonicalTag = document.querySelector('link[rel="canonical"]');
-      var canonicalUrl = canonicalTag ? canonicalTag.getAttribute('href') : '';
       if (ogUrl) return ogUrl;
       if (canonicalUrl) return canonicalUrl;
+      return currentUrl;
     }
+
+    // In production, avoid stale metadata domains. Prefer same-host URLs.
+    if (ogUrl && ogHost === currentHost) return ogUrl;
+    if (canonicalUrl && canonicalHost === currentHost) return canonicalUrl;
 
     return currentUrl;
   }
