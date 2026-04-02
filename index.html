@@ -120,7 +120,7 @@
       href="./css/microsite_header_v2.min.css" />
   
 
-  <script>/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+  <script> 
     !function (a) { "use strict"; var b = function (b, c, d) { function e(a) { return h.body ? a() : void setTimeout(function () { e(a) }) } function f() { i.addEventListener && i.removeEventListener("load", f), i.media = d || "all" } var g, h = a.document, i = h.createElement("link"); if (c) g = c; else { var j = (h.body || h.getElementsByTagName("head")[0]).childNodes; g = j[j.length - 1] } var k = h.styleSheets; i.rel = "stylesheet", i.href = b, i.media = "only x", e(function () { g.parentNode.insertBefore(i, c ? g : g.nextSibling) }); var l = function (a) { for (var b = i.href, c = k.length; c--;)if (k[c].href === b) return a(); setTimeout(function () { l(a) }) }; return i.addEventListener && i.addEventListener("load", f), i.onloadcssdefined = l, l(f), i }, c = "undefined" != typeof module; c ? module.exports = b : a.loadCSS = b }("undefined" != typeof global ? global : this);
     /*! JS Preload Enhancement */
     if (!('preload' in document.createElement('link').relList)) { var links = document.querySelectorAll('link[rel=preload][as=script]'); for (var i = 0; i < links.length; i++) { var script = document.createElement('script'); script.src = links[i].href; script.defer = true; document.head.appendChild(script); } }
@@ -431,88 +431,11 @@
       text-align: left;
     }
 
-    #award-categrs .award-dec:nth-child(even) {
-      background: #f7f7f7;
-      color: #000;
-    }
-
-    #award-categrs .award-dec:nth-child(odd) {
-      background: #ececdd;
-      /*color: #fff;*/
-    }
-
-    #award-categrs .award-dec.award-heading {
-      background: var(--theme-color) !important;
-    }
-
-    #award-categrs .award-dec h3 {
-      font-size: 15px;
-      font-weight: 600;
-    }
-
-    #award-categrs .award-heading h3,
-    #award-categrs .award-heading p {
-      font-size: var(--secondary-font-size, 16px);
-      font-weight: 600;
-    }
+    
 
     /**Partner css**/
 
-    section#our-partners {
-      background: linear-gradient(0deg, rgb(255 255 255 / 0%) 0%, #ffffff 100%, rgb(250 249 255) 80%);
-      margin-top: 0px;
-      padding-top: 50px;
-    }
-
-    .sponsor-style-3 section.sponsor-row-wrapper .sponsor-box a {
-      background: transparent;
-      min-height: 55px;
-      min-width: auto;
-    }
-
-    body.color_black .sponsor-style-3 section.sponsor-row-wrapper .sponsor-box {
-      background: transparent !important;
-    }
-
-    .sponsor-style-3 section.sponsor-row-wrapper .sponsor-box {
-      border: 1px solid rgba(123, 90, 241, 0.16);
-      background: rgba(255, 255, 255, 0.16);
-    }
-
-    .sponsor-style-3 section.sponsor-row-wrapper .sponsor-box a[title="TrippingCube"] img,
-    .sponsor-style-3 section.sponsor-row-wrapper .sponsor-box a[title="AceNgage"] img {
-      max-height: 50px !important;
-    }
-
-    .sponsor-style-3 section.sponsor-row-wrapper .sponsor-box a[title="Qapita"] img {
-      max-height: 40px !important;
-    }
-
-    .sponsor-style-3 section.sponsor-row-wrapper .sponsor-box a[title="HEI Schools"] img,
-    .sponsor-style-3 section.sponsor-row-wrapper .sponsor-box a[title="Happiest Places To Work"] img {
-      max-height: 36px !important;
-    }
-
-    .sponsor-style-3 section.sponsor-row-wrapper .sponsor-box a[title="Konverz AI"] img {
-      max-height: 46px !important;
-    }
-
-    .sponsor-style-3 section.sponsor-row-wrapper .sponsor-box a[title="LegAccord"] img {
-      max-height: 45px !important;
-    }
-
-    .sponsor-style-3 section.sponsor-row-wrapper .sponsor-box a[title="JoyeAI"] img {
-      max-height: 46px !important;
-    }
-
-    .sponsor-style-3 section.sponsor-row-wrapper .sponsor-box a[title="Spire AI"] img {
-      max-height: 25px !important;
-    }
-
-    .sponsor-style-3 section.sponsor-row-wrapper .sponsor-box a[title="HiredNext"] img {
-      max-height: 30px !important;
-    }
-
+ 
 
 
     @media screen and (max-width:767px) {
@@ -966,36 +889,7 @@
       line-height: 1.2em;
     }
 
-    .pricing_style .page_hdng4 h2::after {
-      content: "The below packages are only on HR Practitioners.";
-      display: block;
-      font-size: 16px;
-      font-weight: 500;
-      color: #000;
-      margin-top: 5px;
-    }
-
-
-    .download-brouchre-btn {
-      margin-left: 30px !important;
-      margin-top: 20px;
-    }
-
-    #registration-fee .pricing_style_1 .offer-box a.buynow_btn {
-      background: #eb5113;
-    }
-
-    #registration-fee .pricing_style_1 .offer-box .desc {
-      min-height: 555px !important;
-    }
-
-    #registration-fee .col-md-12_.text-center.label {
-      background: var(--theme-color);
-    }
-
-    .pricing_style small.d-block {
-      display: block;
-    }
+   
 
     .gradient-bg {
       background: linear-gradient(to right, #ec501a 0%, #bf2a71 100%) !important;
@@ -1007,35 +901,7 @@
       background: #ec501a !important;
     }
 
-    #registration-fee .pricing_style_1 .offer-box {
-      min-height: 810px;
-      max-width: 368px;
-    }
-
-    @media (max-width:767px) {
-      #registration-fee .pricing_style_1 .offer-box .desc {
-        min-height: auto !important;
-      }
-
-      #registration-fee .pricing_style_1 .offer-box {
-        min-height: auto;
-      }
-
-      .btn-wrapper {
-        text-align: center;
-      }
-
-      .download-brouchre-btn {
-        margin-left: 0 !important;
-      }
-
-    }
-
-    .dtstyle-default.dt-13 span {
-      font-size: 14px;
-      font-weight: 500;
-      color: #000;
-    }
+   
 
     #ms_header_oauth_wrapper .ms-header_oauth .topLeftBX .logoWrapper>a img.default-logo {
       display: none;
@@ -1107,60 +973,15 @@
       background: url('images/e9921e18749a4582f4d0.png') !important;
     }
 
-    #speakers,
-    #speakers_1,
-    #speakers_2,
-    #our-speakers {
-      background: #00302d;
-    }
+   
 
-    #speakers {
-      padding-top: 60px;
-      margin-bottom: 0px;
-    }
+    
+ 
 
-    #speakers_1 {
-      margin-top: 0px;
-      padding-top: 40px;
-      margin-bottom: 0px;
-    }
+    
 
-    #speakers_2 {
-      padding-top: 60px;
-      margin-top: 0px;
-      margin-bottom: 0px;
-    }
-
-    #our-speakers {
-      padding-top: 60px;
-      margin-top: 0px;
-      margin-bottom: 0px;
-    }
-
-    #our-speakers .caption h5 {
-      color: #fff !important;
-    }
-
-    #our-speakers .caption span {
-      color: rgba(200, 200, 200, 1) !important;
-    }
-
-    #speakers_1 .caption h5 {
-      color: #fff !important;
-    }
-
-    #speakers_1 .caption span {
-      color: rgba(200, 200, 200, 1) !important;
-    }
-
-    #speakers_2 .caption h5 {
-      color: #fff !important;
-    }
-
-    #speakers_2 .caption span {
-      color: rgba(200, 200, 200, 1) !important;
-    }
-
+  
+ 
 
     #testimonials .slick-prev:before {
       content: "\f060" !important;
@@ -7722,8 +7543,8 @@
                     <div class="row">
                       <div class="col-md-12">
                         <div class="venue-detail">
-                          <!--h4>Gurgaon</h4-->
-                          <!--p>18 - 19 February 2026</p-->
+                          <!--h4> </h4-->
+                          <!--p> </p-->
                         </div>
                         <div class="venue-img animated fadeInUp delay-2s">
                            
@@ -8835,8 +8656,8 @@
                                 <div class="contact-box">
                                   <span class="name" style="font-family: 'Montserrat';">Ankur Trivedi</span>
                                   <span class="email"> <a
-                                      onclick="window.ReactNativeWebView.postMessage('link-email-vijay290@gmail.com');"
-                                      href="mailto:vgaur290@gmail.com" target="_blank"
+                                      onclick="window.ReactNativeWebView.postMessage('link-email-ankurtrivedi@timesinternet.in');"
+                                      href="mailto:ankurtrivedi@timesinternet.in" target="_blank"
                                       class="email" style="font-family: 'Montserrat';">ankurtrivedi@timesinternet.in</a> </span>
                                   <span class="phone"><a
                                       onclick="window.ReactNativeWebView.postMessage('link-phone-9971000000');"
@@ -8894,7 +8715,7 @@
                                       href="mailto:mayanksharma.ems@gmail.com" target="_blank"
                                       class="email" style="font-family: 'Montserrat';">mayanksharma.ems@gmail.com</a> </span>
                                   <span class="phone"><a href="tel:+919740761921"></a><a
-                                      onclick="window.ReactNativeWebView.postMessage('link-phone-9855550000');"
+                                      onclick="window.ReactNativeWebView.postMessage('link-phone-783698948');"
                                       href="tel:7836989485" target="_blank" class="phone"> 7836989485</a></span>
                                 </div>
 
@@ -10168,29 +9989,7 @@
             </p>
           </div>
           <div class="row d-block">
-
-            <!-- <div class="col-md-6  ">
-              <div class="events_lst">
-                <a href="./elegans.html">
-                  <h3>What's Happening in elegans.netlify.app</h3>
-                </a>
-                <ul class="row">
-                  <li class="col-sm-3">
-                    <a target="_blank" href="./elegans.html" data-modname="Events_Footer">
-                      <figure><img class="unveil" src="" data-src=""></figure>
-                      <figcaption>Thrive Workplace Wellbeing Delhi</figcaption>
-                    </a>
-                  </li>
-                  <li class="col-sm-3">
-                    <a target="_blank" href="./elegans.html" data-modname="Events_Footer">
-                      <figure><img class="unveil" src=" " data-src=" "></figure>
-                      <figcaption>Happiness: The Key Driver for Organizational Performance<span class="hideputt"></span>
-                      </figcaption>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div> -->
+ 
 
             <div class="col-md-6">
               <nav class="row">
@@ -10654,8 +10453,8 @@
   </script>
 
   <!-- Google Marketing default pixel for all portal -->
-  <link rel="preload" as="script" href="https://www.googletagmanager.com/gtag/js?id=AW-733008391">
-  <script async="" defer="" src="https://www.googletagmanager.com/gtag/js?id=AW-733008391"></script>
+  <link rel="preload" as="script" href="https://www.googletagmanager.com/gtag/js?id=AW-7836989485">
+  <script async="" defer="" src="https://www.googletagmanager.com/gtag/js?id=AW-7836989485"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() {
