@@ -1527,7 +1527,7 @@ function redirect_to_thankspage(email){
 
 function set_redirect_cookie(url, show_layer){
 	var cur_loc = loc;
-	setCookie(ET_PORTAL + '_share_redirect_url', cur_loc, 1);
+	 
 	if(show_layer === true){
 		_custom_poplayer2('Connecting with Facebook', '', '', '', 1);
 	}
@@ -1618,10 +1618,10 @@ function setup_social_share_pop(ele_id){
 		var in_blk = '<div class="social-button clearfix"><span class="title">Share on LinkedIn</span>'+in_in+'</div>';
 		
 		 
-		$('#_l2_txt_cnt_'+ele_id).html('<p>Help your contacts discover good content. Share what you read on ' + SITE_NAMES[ET_PORTAL] + ' automatically with your contacts on Facebook.  You can change the settings whenever you want.</p>'+fb_blk+in_blk+'<br />');
+		 
 		
 	} else{
-		var ele_id = _custom_poplayer2('Go Social with '+SITE_NAMES[ET_PORTAL], '', '', '', 1);
+		 
 		setup_social_share_pop(ele_id);
 	}
 }
@@ -1727,13 +1727,13 @@ function set_video_pagination_ui(data){
 		if(data.videos){ 
 			hide_loading_overlay($('#'+video_blockid).parent('.page_overlay_outer'));
 			$.each(data.videos, function (index, item) {
-				image_src = THEME_PATH+'/images/responsive/video-'+ET_PORTAL+'-default.jpg';
+				 
 				if(item.thbmedia == 1){
 					//image_src = CMS_IMG_URL+'/thumb/'+item.msid+'.cms?width=145&height=110';
 					image_src = CMS_IMG_URL+'/thumb/'+item.msid+'.cms?width=225&height=143';
 				}
-				//echo += '<li><a href="javascript:void(0);" onclick="javascript:show_relvideo(\''+item.msid+'\',render_mainvideo_block);"><div class="image"><img class="unveil" src="'+ET_DEFAULT_IMG_URL+'" data-src="'+image_src+'" alt="" /><span class="time">'+item.duration+'</span></div><span class="caption">'+item.vtitle+'</span></a></li>';
-				echo += '<li><a href="'+base_url+'/videos/'+item['seolocation']+'/'+item['msid']+'" ><div class="image"><img class="unveil" src="'+ET_DEFAULT_IMG_URL+'" data-src="'+image_src+'" alt="" /><span class="time">'+item.duration+'</span></div><span class="caption">'+item.vtitle+'</span></a></li>';
+				 
+				 
 			});
 		}
 		if(echo){
@@ -1753,7 +1753,7 @@ function set_slideshow_pagination_ui(data){
 		if(data.slideshows){ 
 			hide_loading_overlay($('#'+slide_blockid).parent('.page_overlay_outer'));
 			$.each(data.slideshows, function (index, item) {
-				image_src = THEME_PATH+'/images/responsive/video-'+ET_PORTAL+'-default.jpg';
+				 
 				if(item.thumbid){
 					image_src = CMS_IMG_URL+'/thumb/'+item.thumbid+'.cms?width=145&height=110';
 				}
@@ -1794,19 +1794,15 @@ function is_valid_url(url){
 function check_sub_popup_show(){ 
 	if(isGDPRNation()) //prevent login check
 	return false;
-	/*var xCookie = getCookie(ET_PORTAL+'_pop_user_sub');
-	var xCookieClose = getCookie(ET_PORTAL+'_pop_user_sub_close');*/
+	 
 	show_subscription_layer_timeout = setTimeout(function() { 
-		/*if(!xCookie && !xCookieClose && !login_required && !_is_loggedin){ 
-			_custom_poplayer2('','',show_subscription_layer, '', 3);
-		}*/
+		 
 		exec_check_sub_popup_show();
 	}, 5000);  
 }
 
 function exec_check_sub_popup_show(){
-	var xCookie = ck_de(getCookie(ET_PORTAL+'_pop_user_sub'));
-	var xCookieClose = getCookie(ET_PORTAL+'_pop_user_sub_close');
+ 
 	if(!xCookie && !xCookieClose && !login_required && !_is_loggedin){ 
 		setTimeout(function(){
 			if (B2B_SSO_LOGIN == 1){
@@ -1842,8 +1838,8 @@ function auto_search_pop(id){
 		for(var i = 0; i < search_requests.length; i++)
 		search_requests[i].abort();
 		// XSLT
-		var _aurl = ET_PORTAL_CMS_PATH+'/etvertical_feed'+ET_PORTAL+'search.cms?query='+last_search_val+'&feedtype=sjson&callback=cb_search'; 
-		//var _aurl = 'http://etdev.indiatimes.com:8243/etvertical_searchfeed.cms?query='+last_search_val+'&feedtype=sjson&callback=cb_search'; 
+		 
+		  
 		
 		$.getScript(_aurl);
 	}
@@ -1856,7 +1852,7 @@ function cb_search(data) {
 		$.each(data.sec.stry, function(){
 			if(this.stname && this.seolocation){
 				this.stname = this.stname.replace(new RegExp(last_search_val, 'ig'),'<strong style="color:blue;">'+last_search_val+'</strong>');
-				html+='<li><a target="_blank" href="'+ET_PORTAL_CMS_PATH+'/'+this.seolocation+'/articleshow/'+this.msid+'.cms">'+this.stname+'</a></li>';
+				 
 			}					
 		});
 	}
@@ -2196,7 +2192,7 @@ function getSocialShareWidget($obj)
 	var text_1 = $obj['text_1'];
 	var link_0 = $obj['link_0'];
 	var imgPath_0 = $obj['imgPath_0'];
-	var socialElem = '<div class="follow-wdgt"><a onclick="javascript:twitter_share(\''+rfc3986EncodeURIComponent(text_0+' #'+SITE_NAME_TITLE)+'\', \''+link_0+'\'); return false;" href="javascript:void(0);" class="twitter"><span class="sprite-bg"></span></a><span class="dvr">/</span><a onclick="javascript:facebook_share(\''+link_0+'\', \''+imgPath_0+'\', \''+rfc3986EncodeURIComponent(text_0)+'\', \''+rfc3986EncodeURIComponent(text_1)+'\'); return false;"  href="javascript:void(0);" class="fb"><span class="sprite-bg"></span></a><span class="dvr">/</span><a onclick="javascript:googleplus_share(\''+rfc3986EncodeURIComponent(text_0)+'\', \''+link_0+'\'); return false;"  href="javascript:void(0);" class="gpls"><span class="sprite-bg"></span></a><span class="dvr">/</span><a onclick="javascript:linkedin_share(\''+rfc3986EncodeURIComponent(text_0)+'\', \''+link_0+'\', \''+rfc3986EncodeURIComponent(text_1)+'\',\''+rfc3986EncodeURIComponent(SITE_NAMES[ET_PORTAL])+'\'); return false;" href="javascript:void(0);" class="lin"><span class="sprite-bg"></span></a></div>';
+	 
 	return socialElem;
 }
 
