@@ -1008,50 +1008,7 @@
 
   <!-- Google Tag Manager -->
   <!-- analytics_gtm_id to be passed dynamically per portal-->
-  <script>
-    // To handle GA issue on unknown pages 
-    if (typeof ga != "undefined") {
-      function ga() {
-
-      }
-    }
-    var hasUserAllowedInEU = function (trackingParam) {
-      var result = true;
-
-      if (trackingParam) {
-        trackingParam = trackingParam.toLowerCase();
-        var userPreference = localStorage.getItem('userPreference');
-        var configParam = 'config.' + trackingParam;
-
-        // IF user Gave the consent to track GA
-        if (userPreference) {
-          userPreference = JSON.parse(userPreference);
-
-          if (typeof userPreference.data != "undefined" && userPreference.data != "" && typeof userPreference.data[configParam] != "undefined" && userPreference.data[configParam] != "1") {
-            result = false;
-          }
-        }
-      }
-      return result;
-    };
-
-    //  Load Ibeat
-    var isIbeatLoaded = false;
-    if (typeof iBeatPgTrend == 'undefined' && hasUserAllowedInEU('ibeat')) {
-      isIbeatLoaded = true;
-      (function () { loadScript('https://agi-static.indiatimes.com/cms-common/ibeat.min.js'); })();
-    }
-
-    var isGTMLoadValid = typeof analytics_gtm_id != "undefined" && analytics_gtm_id && hasUserAllowedInEU('ga');
-    if (isGTMLoadValid && isGTMLoadValid != "") {
-      // Load GTM Script
-
-      window.dataLayer = window.dataLayer || [];
-
-       
-    }
-  </script>
-
+   
   <!-- End Google Tag Manager -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T4VDMX3" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
