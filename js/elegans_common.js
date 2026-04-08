@@ -1266,7 +1266,7 @@ var SPL = {
   a.async = 1;
   a.src = g;
   m.parentNode.insertBefore(a, m);
-})(window, document, 'script', "//videoplayer.indiatimes.com/v2.5.8/sdk.js");
+})(window, document, 'script', "//videoplayer.emsworld.com/v2.5.8/sdk.js");
 function loadVideo() {
   var jsWebUrl = location.protocol + '//' + location.host;
   var player;
