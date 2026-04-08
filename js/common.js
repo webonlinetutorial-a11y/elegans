@@ -190,13 +190,13 @@ const widgetVisiblityInfo = new Date() <= new Date("2025-10-15T23:59:59");
 
 
 var commentApiUrl = function () {
-    var url = 'https://jcms-api.economictimes.indiatimes.com';
+    
 
     if (typeof environment !== 'undefined' && environmentMap[environment] == 1) {
-        url = 'https://jcms-api.economictimes.indiatimes.com';
+      
 
     } else if (typeof environment !== 'undefined' && typeof environmentMap[environment] !== 'undefined') {
-        url = 'https://jcms-api-' + environmentMap[environment] + '.economictimes.indiatimes.com';
+         
     }
     //url = JCMS_API_BASE_URL;
     return url;
@@ -4742,8 +4742,7 @@ const nativeShare = (shareurl) => {
       console.warn('Native Web Sharing not supported');
     }
 }
-const utmUrlMasterClass = `https://enterpriseai.economictimes.indiatimes.com/making-ai-work-awards?ag=Top-Promo-Strip_${pageLabelName}_et${ET_PORTAL}&utm_source=Top-Promo-Strip_${pageLabelName}_et${ET_PORTAL}`;
-
+ 
 const sponsorMasterClass = (lid) => {
     const sponsorData = `
         <div class="card">
