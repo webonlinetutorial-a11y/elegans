@@ -1,6 +1,6 @@
 Elegans = Elegans || {};
-var portalName = (typeof SITE_NAMES[ET_PORTAL] !== 'undefined') ? SITE_NAMES[ET_PORTAL] : 'ET';
-var ET_PORTAL = (typeof ET_PORTAL !== 'undefined') ? ET_PORTAL : '';
+var portalName = (typeof SITE_NAMES[ Elegans] !== 'undefined') ? SITE_NAMES[ Elegans] : 'ET';
+var  Elegans = (typeof  Elegans !== 'undefined') ?  Elegans : '';
 var base_url = (typeof base_url !== 'undefined') ? base_url : '';
 var client_id = (typeof OAUTH_CLIENT_ID !== 'undefined') ? OAUTH_CLIENT_ID : '';
 var deviceType = ($(window).width() >= 780) ? 'desktop' : 'mobile';
@@ -2766,13 +2766,13 @@ Elegans.login = (function () {
 		let logSource = Elegans.commJs.getLocalStorage('logSource');
 		var isValidGTMCase = Elegans.utils.isOperatable(config) && typeof dataLayer != "undefined" && dataLayer;
 		var productName = portal_product == "product_main" ? "product_news" : portal_product;
-		productName = sessionStorage.getItem('loginBehindSession') ? productName + ' - Custom Login Popup - {' + layerVisiblePortal[ET_PORTAL] + '}' : productName;
+		productName = sessionStorage.getItem('loginBehindSession') ? productName + ' - Custom Login Popup - {' + layerVisiblePortal[ Elegans] + '}' : productName;
 		var triggerPosition = logSource || "Header";
 		var gtmGlobals = sessionStorage.getItem('gtmGlobals');
 		var singleEventInSingleSession = ["login_completed", "login_completed_crosswalk"].includes(config.event);
 		
 		var props = {
-			portal_name: ET_PORTAL,
+			portal_name:  Elegans,
 			product_case: (logSource) ? productName +' - '+ logSource : productName
 		};
 
@@ -3036,7 +3036,7 @@ Elegans.login = (function () {
 			let modelHtml = `
 			<div class="model-content row">
 				<a class="back-lgn-pop sprite-icon-img"></a>
-				<h2 class="brand-icon"><img src="${THEME_PATH}/theme4/images/logos/${ET_PORTAL}-logo-header.svg" title="Logo" alt="" /></h2>
+				<h2 class="brand-icon"><img src="${THEME_PATH}/theme4/images/logos/${ Elegans}-logo-header.svg" title="Logo" alt="" /></h2>
 			    <div class="col-md-12" id="social-form">
 			        <div class="login-model social-login-tabs">
 			            <div class="showloader"></div>
@@ -3330,7 +3330,7 @@ Elegans.login = (function () {
 			} else {
 				$('.brand-icon img').attr('src', $('.site-header__logo a img.mobile-view').attr('src'));
 				if (portal_product == 'product_microsite' || portal_product == 'product_awards') {
-					$('.brand-icon img').attr('src', `${THEME_PATH}/theme4/images/logos/${ET_PORTAL}-logo-header.svg`);
+					$('.brand-icon img').attr('src', `${THEME_PATH}/theme4/images/logos/${ Elegans}-logo-header.svg`);
 				}
 			}
 
@@ -3342,7 +3342,7 @@ Elegans.login = (function () {
 			let variant1_html = `
 				<div class="model-content row">
 					<a class="back-lgn-pop sprite-icon-img"></a>
-					<h2 class="brand-icon"><img src="${THEME_PATH}/theme4/images/logos/${ET_PORTAL}-logo-header.svg" title="Logo" alt="" /></h2>
+					<h2 class="brand-icon"><img src="${THEME_PATH}/theme4/images/logos/${ Elegans}-logo-header.svg" title="Logo" alt="" /></h2>
 					<div class="col-md-12" id="social-form">
 						<div class="login-model social-login-tabs">
 							<div class="showloader"></div>
@@ -3550,7 +3550,7 @@ Elegans.login = (function () {
 			$('#model_content_' + lid).html(variant1_html);
 			if(theme_version != 'v4'){
 				if (portal_product == 'product_microsite' || portal_product == 'product_awards') {
-					$('.brand-icon img').attr('src', `${THEME_PATH}/theme4/images/logos/${ET_PORTAL}-logo-header.svg`);
+					$('.brand-icon img').attr('src', `${THEME_PATH}/theme4/images/logos/${ Elegans}-logo-header.svg`);
 				} else if (portal_product == 'portal_masterclass') {
 					$('.brand-icon img').attr('src', $('a.header__logo img').attr('src'));
 				} else {
@@ -4018,7 +4018,7 @@ Elegans.login = (function () {
 				if (data.email) {
 					let lmsg = `	<div class="thnks-pmsg">
 									<h2 class="brand-icon">
-									<img src="${THEME_PATH}/theme4/images/logos/${ET_PORTAL}-logo-header.svg" title="Logo" alt=""></h2>
+									<img src="${THEME_PATH}/theme4/images/logos/${ Elegans}-logo-header.svg" title="Logo" alt=""></h2>
 									<h2>Check your email</h2> 
 					
 									<p>If there\'s an Elegans Marketing Solutions associated with 
@@ -4040,7 +4040,7 @@ Elegans.login = (function () {
 					
 					if(theme_version != 'v4'){
 						if (portal_product == 'product_microsite' || portal_product == 'product_awards') {
-							$('.brand-icon img').attr('src', `${THEME_PATH}/theme4/images/logos/${ET_PORTAL}-logo-header.svg`);
+							$('.brand-icon img').attr('src', `${THEME_PATH}/theme4/images/logos/${ Elegans}-logo-header.svg`);
 						} else if (portal_product == 'portal_masterclass') {
 							$('.brand-icon img').attr('src', $('a.header__logo img').attr('src'));
 						} else {
@@ -4411,7 +4411,7 @@ Elegans.login = (function () {
 				let listUnitItems = ``;
 
 				const CheckPortalNewsLetters = function (param) {
-					return ET_PORTAL == param ? "checked" : "";
+					return  Elegans == param ? "checked" : "";
 				};
 
 				const createList = function () {
@@ -4496,7 +4496,7 @@ Elegans.login = (function () {
 				if (newsletterResponse && newsletterCookieExists) {
 					ajaxSuccess(newsletterResponse, "y");
 				} else {
-					if(ET_PORTAL!="masterclass" && ET_PORTAL!="events"){
+					if( Elegans!="masterclass" &&  Elegans!="events"){
 						Elegans.commJs.hitAjaxApi({
 							url: base_url + '/api/v1/newsletter/list',
 							data: {
@@ -4814,7 +4814,7 @@ Elegans.login = (function () {
 			}
 		}
 		var enablePreferences = '';
-		if(ET_PORTAL !== 'ems'){
+		if( Elegans !== 'ems'){
 			enablePreferences = `<li class="manage-preferences"><a href="/manage-preferences"><i class="fa fa-envelope"></i>Manage Preferences</a></li>`;
 		}
 		$('#top-login-btn, #mb_top-login-btn').hide();
@@ -5107,7 +5107,7 @@ Elegans.login = (function () {
 			var eventImp = abTestVersion ? 'cbs2_v' + abTestVersion : 'cbs2';
 			Elegans.login.gtmHelper({
 				event: 'More Sign in options',
-				portal_name: ET_PORTAL,
+				portal_name:  Elegans,
 				login_source_type: 'Exclusive',
 				product_case: 'product_news - Exclusive',
 			});
@@ -5120,7 +5120,7 @@ Elegans.login = (function () {
 			headerLoginGoogleEvent = 'all_buttons';
 			Elegans.login.gtmHelper({
 				event: 'More Sign in options',
-				portal_name: ET_PORTAL,
+				portal_name:  Elegans,
 				login_source_type: login_source_info ? login_source_info : 'native login',
 				product_case: (portal_product == 'product_main') ? 'product_news' : portal_product,
 			});
@@ -5889,7 +5889,7 @@ Elegans.login = (function () {
 		var primeFlag = $('.post-body.article-body-full').attr('data-article');
 		var newsAgencyName = $('.post-body .post-meta .news_agency_name a').html();
 		var byLine = $('.post-body .post-meta .name-author a').html();
-		if (primeFlag == '200' || (ET_PORTAL == 'hospitality') && newsAgencyName == 'ETHospitalityWorld' && byLine) {
+		if (primeFlag == '200' || ( Elegans == 'hospitality') && newsAgencyName == 'ETHospitalityWorld' && byLine) {
 			if (loginVersion) {
 				$('.post-body.article-body-full .fb-comments-disabled, .post-body.article-body-full .post-tags').addClass('hide');
 				//Elegans.primePopup.primeLoginBehind();
@@ -5967,7 +5967,7 @@ Elegans.login = (function () {
 				event: popupType,
 				product_case: (sessionStorage.getItem('loginBehindSession') || $('.show-login-layer-article').length) ? (portal_product == 'product_main') ? 'product_news - Custom Login Popup' : portal_product + '- Custom Login Popup' : (portal_product == 'product_main') ? 'product_news' : portal_product,
 				login_source_type: 'native login',
-				portal_name: ET_PORTAL
+				portal_name:  Elegans
 			});
 
 			$(this).parents('.model-box').remove();
@@ -6372,7 +6372,7 @@ if (Elegans.globalVar.isNewsLetterSubscriptionApplicable) {
 				clearNewsLetterStates();
 				if (response.code == 3001) {
 					if (theme_version != 'v4') {
-						var portalDisplay = window.is_pip ? 'ET' + window.pip['category'] : SITE_NAMES[ET_PORTAL];
+						var portalDisplay = window.is_pip ? 'ET' + window.pip['category'] : SITE_NAMES[ Elegans];
 						var cnfmMsg = '<h2>Thanks for Subscribing</h2><p>Your subscription is confirmed for ' + portalDisplay + ' latest updates.</p><p><a href="' + emsPortalUrl + '/subscriptions" target="_blank">Click here</a> to view all the Newsletters.</p>';
 						Elegans.commJs.showSuccessMessage(cnfmMsg, "y", 'newsletter_subscribe');
 					} else{
@@ -6421,7 +6421,7 @@ if (Elegans.globalVar.isNewsLetterSubscriptionApplicable) {
 			var logoDiv = $(".logos").html();
 			if (logoDiv != undefined && logoDiv != '') {
 				var prtlSpnsrTxt = "Supported by:";
-				if (ET_PORTAL == 'brandequity') prtlSpnsrTxt = "Associate Partner:";
+				if ( Elegans == 'brandequity') prtlSpnsrTxt = "Associate Partner:";
 				bottom_txt = '<div class="spnsrs"><h5><span>' + prtlSpnsrTxt + '</span></h5>' + logoDiv + '</div>';
 			} else {
 				bottom_txt = '';
@@ -6429,7 +6429,7 @@ if (Elegans.globalVar.isNewsLetterSubscriptionApplicable) {
 
 			var showMulticheckBox = '';
 			var newsletterHtmlContent = '<form action="#"><div class="section"> <div class="create-section input_sec"><input name="subscribe_email_pop" id="subscribe_email_pop" type="text" required class="input_txt_box" placeholder="" value="" /><label for="subscribe_email_pop">Your Email </label><p id="subcribe_response_pop" class="error"></p></div> ' + showMulticheckBox + '<div class="consent-popup"> <input type="checkbox" id="consentPopup_pop" name="consent Popup"> <label for="consentPopup_pop" style="text-align:left;"> I have read <a target="_blank" href="/privacy_policy.php">Privacy Policy</a> and <a target="_blank" href="/terms_conditions.php">Terms &amp; Conditions</a> and agree to receive newsletters and other communications on this email ID.</label></div><div id="subcribe_consentPopup_pop" class="subcribe_consentPopup et-rtl-error"></div> <input type="button" class="btn submit-button2" value="Subscribe" onclick="Elegans.subscription.updateSubscription(\'pop\');" /></div></form>';
-			$('#model_content_' + lid).html('<div class="subscribe-form subscribeBx">' + ((typeof demosite != 'undefined' && demosite == 1) ? '<span class="cmngTx">Coming Soon!</span><img class="popLogo" src="' + ($(".logo img").eq(0).attr('src').replace(/"|\(|\)|url/g, '')) + '" alt="">' : '') + '<h2>' + (is_pip && pip_subscription_box ? pip_subscription_box["title"] : (SUBSCRIPTION_HEADING[ET_PORTAL] ? SUBSCRIPTION_HEADING[ET_PORTAL] : ('Stay updated with the latest news in the ' + SITE_CUSTOM_TITLES[ET_PORTAL] + ' sector with our daily newsletter'))) + '</h2><span class="subtitle">' + (is_pip && pip_subscription_box ? pip_subscription_box["tagline"] : SUBSCRIPTION_TAGLINES[ET_PORTAL]) + '</span>' + newsletterHtmlContent + '</div>' + bottom_txt);
+			$('#model_content_' + lid).html('<div class="subscribe-form subscribeBx">' + ((typeof demosite != 'undefined' && demosite == 1) ? '<span class="cmngTx">Coming Soon!</span><img class="popLogo" src="' + ($(".logo img").eq(0).attr('src').replace(/"|\(|\)|url/g, '')) + '" alt="">' : '') + '<h2>' + (is_pip && pip_subscription_box ? pip_subscription_box["title"] : (SUBSCRIPTION_HEADING[ Elegans] ? SUBSCRIPTION_HEADING[ Elegans] : ('Stay updated with the latest news in the ' + SITE_CUSTOM_TITLES[ Elegans] + ' sector with our daily newsletter'))) + '</h2><span class="subtitle">' + (is_pip && pip_subscription_box ? pip_subscription_box["tagline"] : SUBSCRIPTION_TAGLINES[ Elegans]) + '</span>' + newsletterHtmlContent + '</div>' + bottom_txt);
 			bindCommonEvent();
 
 			if (typeof Elegans.login.createEnableDisableFeature != "undefined")
@@ -6492,7 +6492,7 @@ if (Elegans.globalVar.isNewsLetterSubscriptionApplicable) {
 			} else {
 				if ($('body').hasClass('page-newsletters'))
 					$('.showloader').show();
-				if(ET_PORTAL!="masterclass" && ET_PORTAL!="events"){
+				if( Elegans!="masterclass" &&  Elegans!="events"){
 					Elegans.commJs.hitAjaxApi({
 						type: type,
 						url: base_url + '/api/v1/newsletter/list',
@@ -6602,11 +6602,11 @@ if (Elegans.globalVar.isNewsLetterSubscriptionApplicable) {
 		};
 
 		var initSideBottomPopup = function () {
-			var xCookieClose = Elegans.commJs.getCookie(ET_PORTAL + '_pop_user_sub_close');
+			var xCookieClose = Elegans.commJs.getCookie( Elegans + '_pop_user_sub_close');
 			if (!xCookieClose) {
 				setTimeout(function () {
 					if (!Elegans.globalVar.is_loggedin && !$('.consent-window').length && is_subscription_page != 'Y' && showSubscribeBox && !$('.lgn_pop').length && !isWebinarDetailPage && ((typeof portal_product != "undefined" && portal_product != "product_microsite") || typeof portal_product == "undefined")) {
-						if ((cbsOnPortal.includes(ET_PORTAL)) && $('.page-newsdetail').length) {
+						if ((cbsOnPortal.includes( Elegans)) && $('.page-newsdetail').length) {
 							if (!sessionStorage.getItem('loginLayerSession')) {
 								return false;
 							}
@@ -6636,7 +6636,7 @@ if (Elegans.globalVar.isNewsLetterSubscriptionApplicable) {
 		$(document).ready(function () {
 			initSideBottomPopup();
 			$(document).on('click', '.sticky-rgt-btm .close', function () {
-				Elegans.commJs.setCookie(ET_PORTAL + '_pop_user_sub_close', set_cookie_email, ET_SUB_SOURCE_COOKIE);
+				Elegans.commJs.setCookie( Elegans + '_pop_user_sub_close', set_cookie_email, ET_SUB_SOURCE_COOKIE);
 				Elegans.model.close_pop(1);
 			});
 
@@ -6895,7 +6895,7 @@ $(document).ready(function () {
 		var primeFlag = $('.post-body.article-body-full').attr('data-article');
 		var newsAgencyName = $('.post-body .post-meta .news_agency_name a').html();
 		var byLine = $('.post-body .post-meta .name-author a').html();
-		if (primeFlag == '200' || (ET_PORTAL == 'hospitality') && newsAgencyName == 'ETHospitalityWorld' && byLine) {
+		if (primeFlag == '200' || ( Elegans == 'hospitality') && newsAgencyName == 'ETHospitalityWorld' && byLine) {
 			//if(Elegans.commJs.getCookie('_gaexp')){
 			$('.status_prime_article').addClass('prime_article_200');
 			$('.post-wrapper .Normal').addClass('prime-article');
