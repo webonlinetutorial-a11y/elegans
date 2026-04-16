@@ -4579,10 +4579,10 @@ section.box_widget.layout-4 .card_show {
 }
 .mfp-container .mfp-content {
   background: #fff;
-  padding: 30px;
+  padding: 20px;
   border-radius: 10px;
 }
-body.award-pages .mfp-image-holder .mfp-content {
+body.award-pages .mp-image-holder .mfp-content {
   max-width: 60%;
 }
 .mfp-content #overview-content .text-style div,
