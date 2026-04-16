@@ -60,7 +60,9 @@
 .mfp-zoom-out-cur, .mfp-zoom-out-cur .mfp-image-holder .mfp-close {
   cursor: -moz-zoom-out;
   cursor: -webkit-zoom-out;
-  cursor: zoom-out; }
+  cursor: zoom-out;
+  color:#fff;
+}
 
 .mfp-zoom {
   cursor: pointer;
@@ -248,7 +250,7 @@ img.mfp-img {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 40px 0 40px;
+  padding: 0px;
   margin: 0 auto; }
 
 /* The shadow behind the image */
