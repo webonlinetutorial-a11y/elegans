@@ -4553,7 +4553,7 @@ section.box_widget.layout-4 .card_show {
     bottom: initial;
     top: 50%;
     transform: translate(-50%, -50%);
-    max-width: 90% !important;
+    max-width: 95% !important;
     left: 50%;
     border-radius: 10px !important;
   }
@@ -4579,7 +4579,7 @@ section.box_widget.layout-4 .card_show {
 }
 .mfp-container .mfp-content {
   background: #fff;
-  padding: 20px;
+  padding: 25px;
   border-radius: 10px;
 }
 body.award-pages .mp-image-holder .mfp-content {
